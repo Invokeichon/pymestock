@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.account",
-    "apps.business",
-    "apps.inventory",
+    "pymestock.apps.account.apps.AccountConfig",
+    "pymestock.apps.business.apps.BusinessConfig",
+    "pymestock.apps.inventory.apps.InventoryConfig",
 ]
 
 MIDDLEWARE = [
