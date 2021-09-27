@@ -57,7 +57,7 @@ ROOT_URLCONF = "pymestock.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["./pymestock/templates/"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

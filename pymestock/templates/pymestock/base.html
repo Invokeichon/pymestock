@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock title %}</title>
+    <link type="text/css" href="{% static 'bootstrap/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap/bootstrap.bundle.js' %}"></script>
+    <style>
+        html, body {
+            height:100%;
+            background-color: #7f86a1;
+        }
+        .center {
+            width: 50%;
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .navbar {
+            position: fixed;
+            top: 0px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" style="margin-left: 5%;" href="#">Pymestock</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                <a class="nav-link" href="{% url 'login' %}">Cuenta</a>
+                <a class="nav-link" href="#">Empresa</a>
+                <a class="nav-link" href="{% url 'inventory' %}">Inventario</a>
+            </div>
+        </div>
+    </div>
+    </nav>
+    {% block body %} {% endblock body %}
+</body>
+</html>
