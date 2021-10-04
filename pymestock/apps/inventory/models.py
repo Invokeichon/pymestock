@@ -1,5 +1,5 @@
 from django.db import models
-from pymestock.apps.business.models import Company
+from pymestock.apps.business.models import Business
 
 
 CharField_max_length = 100
@@ -7,7 +7,7 @@ CharField_max_length = 100
 
 class Item(models.Model):
     id_item = models.IntegerField()
-    id_company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    id_business = models.ForeignKey(Business, on_delete=models.CASCADE)
     name = models.CharField(max_length=CharField_max_length)
     brand = models.CharField(max_length=CharField_max_length)
     price = models.IntegerField()
