@@ -4,5 +4,5 @@ This is a project made for Software Engineering course at Universidad de Chile. 
 
 ## General Overview
 
-Pymestock is a web app made with Django and Python (backend) and obviously HTML/CSS (frontend). The reason behind it is to have a platform where PYMEs could
+Pymestock is a web app made with Django and Python (backend) and obviously HTML/CSS (frontend). The reason behind it is to have a platform where PYMEs can
 register their companies and employees, where they could have inventory and stock handlers.

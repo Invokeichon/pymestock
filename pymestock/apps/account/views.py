@@ -1,7 +1,10 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.views.generic import CreateView
 from django.contrib.auth import login
 from django.shortcuts import redirect
+=======
+>>>>>>> 1f83b2c5265d707716587073cf605f7e539cbd71
 
 from .forms import UserSignUpForm
 from .models import User
