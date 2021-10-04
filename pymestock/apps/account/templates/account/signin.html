@@ -1,7 +1,7 @@
 {% extends "pymestock/base.html" %}
 
 {% block title %}
-Pymestock Log In
+Pymestock Sign In
 {% endblock title %}
 
 {% block body %}
@@ -18,11 +18,11 @@ Pymestock Log In
                 {% endif %}
                 <br>
                 <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-                    <label for="floatingInput">Nombre de usuario</label>
+                    <label class="form-label">Nombre de usuario</label>
                     {{ form.username }}
                 </div>
                 <div class="form-floating" style="width: 80%; margin-left: 10%;">
-                    <label for="floatingPassword">Contraseña</label>
+                    <label class="form-label">Contraseña</label>
                     {{ form.password }}
                 </div>
                 <br>
