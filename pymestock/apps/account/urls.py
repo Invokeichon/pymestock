@@ -5,10 +5,20 @@ from . import views
 from .forms import UserSignInForm
 
 urlpatterns = [
-    path('account/', include('django.contrib.auth.urls')),
-    path('account/signin', auth_views.LoginView.as_view(template_name="account/login.html", form_class=UserSignInForm), name = "signin"),
+    path("account/", include("django.contrib.auth.urls")),
+    path(
+        "account/signin",
+        auth_views.LoginView.as_view(
+            template_name="account/signin.html", form_class=UserSignInForm
+        ),
+        name="signin",
+    ),
     path("account/signup", views.UserSignUpView.as_view, name="signup"),
-    path("account/signout", auth_views.LogoutView.as_view(next_page = "/account/signout/"), name = "signout"),
+    path(
+        "account/signout",
+        auth_views.LogoutView.as_view(next_page="/account/signout/"),
+        name="signout",
+    ),
     # TODO
     # path("account/dashboard", views.dashboard, name = "dashboard"),
     # path("account/profile/edit", views.edit, name = "edit_details"),
