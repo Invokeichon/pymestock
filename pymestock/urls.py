@@ -1,5 +1,4 @@
 """pymestock URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -18,12 +17,8 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-<<<<<<< HEAD
     path("", include("pymestock.apps.account.urls")),
-=======
-    path('', include("pymestock.apps.account.urls")),
->>>>>>> master
     path("admin/", admin.site.urls),
-    path('', views.index, name="index"),
-    path('', include("pymestock.apps.inventory.urls")),
+    path("", views.index, name="index"),
+    path("", include("pymestock.apps.inventory.urls")),
 ]
