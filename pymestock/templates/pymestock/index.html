@@ -5,9 +5,14 @@ Pymestock
 {% endblock title %}
 
 {% block body %}
-<div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+<div class="card text-center" style="margin-top: 50px; width: 96%; margin-left: 2%;">
     <p class="display-3 fw-bold text-center" style="margin-top: 50px;"> Pymestock <p>
     <hr style="width: 96%; margin-left: 2%;">
-    <p class="lead text-center" style="margin-top: 25px;"> Somos Pymestock, y bla bla bla<p>
+    <p class="display-5 text-center" style="margin-top: 25px;">¡La solución para manejar tu PYME!<p>
+    <p class="lead text-center" style="margin-left: 2%; margin-right: 2%; margin-top: 15px;">
+    Nuestro sitio busca ayudar a tu PYME a organizar su inventario, 
+    así permitiendo un mejor flujo de trabajo y evitando problemas de manejo de stock.
+    <p>
+    <a href="{% url 'signup' %}" class="btn btn-dark" style="width: 40%; margin-top: 20px; margin-bottom: 20px;">Regístrate</a>
 </div>
 {% endblock body %}
