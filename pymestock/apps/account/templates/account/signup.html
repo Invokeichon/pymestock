@@ -1,0 +1,25 @@
+{% extends "pymestock/base.html" %}
+
+{% block title %}
+Pymestock
+{% endblock title %}
+
+{% block body %}
+<div class="card text-center" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Sign-up <p>
+    <hr style="width: 96%; margin-left: 2%;">
+    <form action="signup.html#" method="post">
+        {% csrf_token %}
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="floatingUsername" placeholder="Usuario1">
+            <label for="floatingUsername">Nombre de Usuario</label>
+        </div>
+        <div class="form-floating" style="width: 80%; margin-left: 10%;">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Contraseña</label>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-dark" style="margin-bottom: 2%;" value="Crear Cuenta">
+    </form>
+</div>
+{% endblock body %}
