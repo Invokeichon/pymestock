@@ -1,34 +1,10 @@
-from django import forms
-from django.contrib.auth.forms import (
-    AuthenticationForm,
-    UserCreationForm,
-)
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .models import User
 from django.db import transaction
+from django import forms
 
 
-class UserSignInForm(AuthenticationForm):
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control mb-3",
-                "placeholder": "Usuario",
-                "id": "floatingInput",
-            }
-        )
-    )
-    password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control",
-                "placeholder": "Password",
-                "id": "floatingPassword",
-            }
-        )
-    )
-
-
-class UserSignUpForm(forms.ModelForm):
+class OwnerSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
@@ -37,3 +13,37 @@ class UserSignUpForm(forms.ModelForm):
         user = super().save(commit=False)
         user.is_owner = True
         user.save()
+
+
+class WorkerSignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_worker = True
+        user.save()
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control mb-3",
+                "placeholder": "Username",
+                "label": "Nombre de usuario",
+                "id": "login-username",
+            }
+        )
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Password",
+                "label": "Contraseña",
+                "id": "login-pwd",
+            }
+        )
+    )

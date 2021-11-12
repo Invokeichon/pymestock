@@ -1,24 +1,20 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from . import views
-from .forms import UserSignInForm
+from pymestock.apps.account.forms import UserLoginForm
+
+from .views import OwnerSignUpView, WorkerSignUpView
 
 urlpatterns = [
-    path("account/", include("django.contrib.auth.urls")),
     path(
-        "account/signin",
+        "account/login/",
         auth_views.LoginView.as_view(
-            template_name="account/signin.html", form_class=UserSignInForm
+            template_name="account/login.html", form_class=UserLoginForm
         ),
-        name="signin",
+        name="login",
     ),
-    path("account/signup", views.UserSignUpView.as_view, name="signup"),
-    path(
-        "account/signout",
-        auth_views.LogoutView.as_view(next_page="/account/signout/"),
-        name="signout",
-    ),
+    path("account/owner/signup", OwnerSignUpView.as_view(), name="owner-signup"),
+    path("account/worker/signup", WorkerSignUpView.as_view(), name="worker-signup")
     # TODO
     # path("account/dashboard", views.dashboard, name = "dashboard"),
     # path("account/profile/edit", views.edit, name = "edit_details"),

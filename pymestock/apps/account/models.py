@@ -1,7 +1,5 @@
-from django.db.models import PositiveSmallIntegerField
 from django.contrib.auth.models import AbstractUser
-from django.db.models.base import Model
-from django.db.models.fields import BooleanField, CharField, TextField
+from django.db.models.fields import BooleanField, CharField
 
 
 class User(AbstractUser):

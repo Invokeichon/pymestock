@@ -8,7 +8,7 @@ Pymestock Sign In
 <form class="account-form" action="{% url 'account:login' %}" method="post">
   {% csrf_token %}
     <div class="box">
-        <div class="card text-center center">
+        <div class="text-center card center">
             <div class="card-body">
                 <h5 class="card-title fw-bold">Pymestock - ¡Ingresa!</h5>
                 {% if form.errors %}
@@ -17,18 +17,18 @@ Pymestock Sign In
                 </div>
                 {% endif %}
                 <br>
-                <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-                    <label class="form-label">Nombre de usuario</label>
+                <div class="mb-3 form-floating" style="width: 80%; margin-left: 10%;">
+                    <label class="form-label mb-2">{{ form.username.label }}</label>
                     {{ form.username }}
                 </div>
-                <div class="form-floating" style="width: 80%; margin-left: 10%;">
-                    <label class="form-label">Contraseña</label>
+                <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+                    <label class="form-label">{{ form.password.label }}</label>
                     {{ form.password }}
                 </div>
                 <br>
                 <a href="" class="btn btn-primary" style="width: 80%" type="submit" value="Log-in">Ingresar</a>
                 <br>
-                <a href="{% url "account:signup" %}" class="card-link top-margin">¿No tienes cuenta? ¡Regístrate!</a>
+                <a href="{% url 'account:owner-signup' %}" class="card-link top-margin">¿No tienes cuenta y eres un/a dueñ@ de PYME? ¡Regístrate!</a>
             </div>
         </div>
     </div>
