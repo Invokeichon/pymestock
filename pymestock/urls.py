@@ -17,8 +17,14 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path("", include("pymestock.apps.account.urls")),
+    path(
+        "",
+        include(("pymestock.apps.account.urls", "account"), namespace="account"),
+    ),
     path("admin/", admin.site.urls),
     path("", views.index, name="index"),
-    path("", include("pymestock.apps.inventory.urls")),
+    path(
+        "",
+        include(("pymestock.apps.inventory.urls", "inventory"), namespace="inventory"),
+    ),
 ]
