@@ -8,17 +8,15 @@ def register_user(request):
         return render(request, "account/signup.html")
 
     elif request.method == 'POST':
-        print(request.POST)
         username = request.POST['floatingUsername']
         password = request.POST['floatingPassword']
 
-        user = User.objects.create_user(username=username, password=password)
+        User.objects.create_user(username=username, password=password)
 
         return HttpResponseRedirect('/login')
 
 def login_user(request):
     if request.method == 'GET':
-        print('a')
         return render(request, "account/login.html")
 
     if request.method == 'POST':
@@ -29,12 +27,12 @@ def login_user(request):
             login(request, user)
             return HttpResponseRedirect('/dashboard')
         else:
-            print('a')
-            return HttpResponseRedirect('login.html')
+            return HttpResponseRedirect('/login')
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect('login.html')
+    return HttpResponseRedirect('/login')
 
 def dashboard(request):
+    
     return render(request, "account/dashboard.html", {})
