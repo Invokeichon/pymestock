@@ -6,7 +6,8 @@ CharField_max_length = 100
 
 
 class Item(models.Model):
-    id_business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    business = models.ForeignKey(Business, null=True, on_delete=models.CASCADE)
+    sku = models.CharField(max_length=12, null=True)
     name = models.CharField(max_length=CharField_max_length)
     brand = models.CharField(max_length=CharField_max_length)
     price = models.IntegerField()

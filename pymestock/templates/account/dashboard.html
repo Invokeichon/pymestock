@@ -13,7 +13,7 @@ Panel de Usuario
     </div>
     <img class="card-img-top" src="..." alt="Logo EMPRESA">
     <div class="card-body">
-      <h5 class="card-title">NOMBRE EMPRESA</h5>
+      <h5 class="card-title">{{ business.business_name }}</h5>
       <a href="{% url 'inventory:inventory' %}" class="btn btn-dark">Inventario</a>
       <a href="{% url 'inventory:add_item' %}" class="btn btn-dark">Añadir item al inventario</a>
     </div>

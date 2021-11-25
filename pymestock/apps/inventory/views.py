@@ -5,7 +5,7 @@ from pymestock.apps.business.models import Business
 
 def inventory(request):
     if request.user.is_authenticated:
-        mis_items = Item.objects.filter(id_business = Business.objects.filter(owner = request.user))
+        mis_items = Item.objects.filter(id_business=request.user.business.id)
         return render(request, "inventory/inventory.html", {"inventory": mis_items})
     else:
         return HttpResponseRedirect("/login")
@@ -16,8 +16,9 @@ def add_item(request):
         return render(request, "inventory/add_item.html")
 
     if request.method == "POST":
-        if "Agregar item" in request.POST:
-            id_business = Business.objects.filter(owner = request.user)
+        if "AddItem" in request.POST:
+            business = Business.objects.get(id=request.user.business.id)
+            sku = request.POST["sku"]
             name = request.POST["name"]
             brand = request.POST["brand"]
             price = request.POST["price"]
@@ -25,10 +26,10 @@ def add_item(request):
             category = request.POST["category"]
 
             if request.user.is_authenticated:
-                nuevo_item = Item(id_business=id_business, name=name, brand=brand, price=price,
+                nuevo_item = Item(business=business, sku=sku, name=name, brand=brand, price=price,
                                   description=description, category=category)
                 nuevo_item.save()
-                mis_items = Item.objects.filter(id_business = Business.objects.filter(owner = request.user))
+                mis_items = Item.objects.filter(business=request.user.business.id)
                 return render(request, "inventory/inventory.html", {"inventory": mis_items})
             else:
                 return render(request, "account/login.html")
