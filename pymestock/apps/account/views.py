@@ -1,6 +1,6 @@
 from django.views.generic import CreateView
 from django.contrib.auth import login
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
 from .forms import OwnerSignUpForm, WorkerSignUpForm
@@ -40,3 +40,6 @@ class WorkerSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect("pymestock:index")
+
+def dashboard(request):
+    return render(request, "account/dashboard.html", {})

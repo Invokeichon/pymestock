@@ -1,0 +1,41 @@
+{% extends "pymestock/base.html" %}
+
+{% block title %}
+Pymestock
+{% endblock title %}
+
+{% block body %}
+<div class="card text-center" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Agregar item a inventario <p>
+    <hr style="width: 96%; margin-left: 2%;">
+    <form action="signup" method="post">
+        {% csrf_token %}
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="item_id" placeholder="SKU1">
+            <label for="item_id">SKU del item</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="name" placeholder="Name">
+            <label for="name">Nombre</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="brand" placeholder="Brand">
+            <label for="brand">Marca</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="price" placeholder="Price">
+            <label for="price">Precio</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="description" placeholder="Description">
+            <label for="description">Descripción</label>
+        </div>
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" id="category" placeholder="Category">
+            <label for="category">Categoría</label>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-dark" style="margin-bottom: 2%;" value="Agregar item">
+    </form>
+</div>
+{% endblock body %}

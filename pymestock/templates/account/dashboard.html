@@ -1,0 +1,29 @@
+{% extends "pymestock/base.html" %}
+
+{% block title %}
+Panel de Usuario
+{% endblock title %}
+
+{% block body %}
+<div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Dashboard <p>
+    <hr style="width: 96%; margin-left: 2%;">
+
+    <h2 class="text-center">Información de Empresa</h2>
+    <br>
+    <div class="card" style="width: 70%; margin-left: 15%; background-color: #ededed;">
+        <p style="margin-top: 5px" class="text-center"><strong>Nombre de Empresa:</strong> Pymestock</p>
+        <p class="text-center">Logo aquí</p>
+        <a class="btn btn-dark" href="{% url 'inventory:add_item' %}">Agregar item a inventario de la Empresa</a>
+    </div>
+    <br>
+    <h2 class="text-center">Información de Usuario</h2>
+    <br>
+    <div class="card" style="width: 70%; margin-left: 15%; background-color: #ededed;">
+        <p style="margin-top: 5px" class="text-center"><strong>Tipo de cuenta:</strong> Administrador de Empresa</p>
+        <a class="btn btn-dark" href="#">Crear observador</a> 
+        <a class="btn btn-dark" style="margin-top: 1%;" href="#">Ver inventario de Empresa</a>
+    </div>
+    <br>
+</div>
+{% endblock body %}
