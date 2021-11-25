@@ -39,7 +39,7 @@
       class=" navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark"
     >
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" style="margin-left: 5%" href="#"
+        <a class="navbar-brand fw-bold" style="margin-left: 5%" href="{% url 'index' %}"
           >Pymestock</a
         >
         <button
@@ -54,7 +54,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav">{% url 'index' %}
             <a class="nav-link" href="{% url 'index' %}">Inicio</a>
             <a class="nav-link" href="{% url 'account:login' %}">Cuenta</a>
             <a class="nav-link" href="#">Empresa</a>

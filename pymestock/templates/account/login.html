@@ -5,32 +5,25 @@ Pymestock Sign In
 {% endblock title %}
 
 {% block body %}
-<form class="account-form" action="{% url 'account:login' %}" method="post">
-  {% csrf_token %}
-    <div class="box">
-        <div class="text-center card center">
-            <div class="card-body">
-                <h5 class="card-title fw-bold">Pymestock - ¡Ingresa!</h5>
-                {% if form.errors %}
-                <div class="alert alert-primary" role="alert">
-                    Error: ¡Usuario o contraseña no son correctos!
-                </div>
-                {% endif %}
-                <br>
-                <div class="mb-3 form-floating" style="width: 80%; margin-left: 10%;">
-                    <label class="form-label mb-2">{{ form.username.label }}</label>
-                    {{ form.username }}
-                </div>
-                <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-                    <label class="form-label">{{ form.password.label }}</label>
-                    {{ form.password }}
-                </div>
-                <br>
-                <a href="" class="btn btn-primary" style="width: 80%" type="submit" value="Log-in">Ingresar</a>
-                <br>
-                <a href="{% url 'account:owner-signup' %}" class="card-link top-margin">¿No tienes cuenta y eres un/a dueñ@ de PYME? ¡Regístrate!</a>
-            </div>
+<div class="card text-center" style="margin-top: 50px; width: 60%; margin-left: 20%;">
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;">Pymestock - ¡Ingresa!<p>
+    <hr style="width: 96%; margin-left: 2%;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
+            <input type="text" class="form-control" name="login-username" placeholder="Usuario1">
+            <label for="login-username">Nombre de usuario</label>
         </div>
-    </div>
-</form>
+        <div class="form-floating" style="width: 80%; margin-left: 10%;">
+            <input type="password" class="form-control" name="login-pwd" placeholder="Password">
+            <label for="login-pwd">Contraseña</label>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-primary" style="margin-bottom: 2%;" value="Ingresar">
+        <br>
+        <a href="{% url 'account:signup' %}" class="card-link top-margin">¿No tienes cuenta y eres un/a dueñ@ de PYME? ¡Regístrate!</a>
+        <br><br>
+    </form>
+</div>
+
 {% endblock body %}
