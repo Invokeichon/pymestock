@@ -17,8 +17,10 @@ def register_user(request):
         return HttpResponseRedirect('/login')
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('/dashboard')
+
     if request.method == 'GET':
-        print('a')
         return render(request, "account/login.html")
 
     if request.method == 'POST':
@@ -29,12 +31,17 @@ def login_user(request):
             login(request, user)
             return HttpResponseRedirect('/dashboard')
         else:
-            print('a')
-            return HttpResponseRedirect('login.html')
+            return HttpResponseRedirect('/error')
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect('login.html')
+    return HttpResponseRedirect('/login')
 
 def dashboard(request):
-    return render(request, "account/dashboard.html", {})
+    if request.user.is_authenticated:
+        return render(request, "account/dashboard.html", {})
+    else:
+        return HttpResponseRedirect('/login')
+
+def error(request):
+    return render(request, "account/error.html", {})

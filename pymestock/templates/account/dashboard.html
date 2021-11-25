@@ -5,25 +5,50 @@ Panel de Usuario
 {% endblock title %}
 
 {% block body %}
-<div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+<!-- https://getbootstrap.com/docs/4.0/components/card/ -->
+<div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%; ">
+  <div class="card text-center">
+    <div class="card-header">
+      EMPRESA
+    </div>
+    <img class="card-img-top" src="..." alt="Logo EMPRESA">
+    <div class="card-body">
+      <h5 class="card-title">NOMBRE EMPRESA</h5>
+      <a href="#" class="btn btn-dark">Inventario</a>
+      <a href="#" class="btn btn-dark">Añadir item al inventario</a>
+    </div>
+  </div>
+
+  <div class="card text-center">
+    <div class="card-header">
+      USUARIO
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Username</h5>
+      <a href="#" class="btn btn-dark"> Añadir Observador</a>
+      <a href="{% url 'account:logout' %}" class="btn btn-dark">Cerrar sesión</a>
+    </div>
+  </div>
+
+</div>
+<!-- <div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%;">
     <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Dashboard <p>
     <hr style="width: 96%; margin-left: 2%;">
-
     <h2 class="text-center">Información de Empresa</h2>
     <br>
     <div class="card" style="width: 70%; margin-left: 15%; background-color: #ededed;">
         <p style="margin-top: 5px" class="text-center"><strong>Nombre de Empresa:</strong> Pymestock</p>
         <p class="text-center">Logo aquí</p>
-        <a class="btn btn-dark" href="{% url 'inventory:add_item' %}">Agregar item a inventario de la Empresa</a>
+        <a class="btn btn-dark" style="margin-top: 1%; width: 50%; margin: 0px auto;" href="#">Ver inventario de Empresa</a>
     </div>
+    <a class="btn btn-dark" href="{% url 'inventory:add_item' %}">Agregar item a inventario de la Empresa</a>
     <br>
     <h2 class="text-center">Información de Usuario</h2>
     <br>
     <div class="card" style="width: 70%; margin-left: 15%; background-color: #ededed;">
         <p style="margin-top: 5px" class="text-center"><strong>Tipo de cuenta:</strong> Administrador de Empresa</p>
         <a class="btn btn-dark" href="#">Crear observador</a> 
-        <a class="btn btn-dark" style="margin-top: 1%;" href="#">Ver inventario de Empresa</a>
     </div>
     <br>
-</div>
+</div> -->
 {% endblock body %}

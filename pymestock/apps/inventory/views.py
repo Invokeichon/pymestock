@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Item, Inventory, MeasureUnit
 from pymestock.apps.business.models import Business
@@ -7,7 +8,7 @@ def inventory(request):
         mis_items = Item.objects.filter(id_business = Business.objects.filter(owner = request.user))
         return render(request, "inventory/inventory.html", {"inventory": mis_items})
     else:
-        return render(request, "account/login.html")
+        return HttpResponseRedirect("/login")
 
 def add_item(request):
 
