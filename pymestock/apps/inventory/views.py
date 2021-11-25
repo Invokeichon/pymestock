@@ -7,7 +7,7 @@ def inventory(request):
         mis_items = Item.objects.filter(id_business = Business.objects.filter(owner = request.user))
         return render(request, "inventory/inventory.html", {"inventory": mis_items})
     else:
-        return render(request, "../../templates/account/login.html")
+        return render(request, "account/login.html")
 
 def add_item(request):
 
@@ -30,4 +30,4 @@ def add_item(request):
                 mis_items = Item.objects.filter(id_business = Business.objects.filter(owner = request.user))
                 return render(request, "inventory/inventory.html", {"inventory": mis_items})
             else:
-                return render(request, "../../templates/account/login.html")
+                return render(request, "account/login.html")

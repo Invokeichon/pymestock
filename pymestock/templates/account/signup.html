@@ -5,17 +5,17 @@ Pymestock
 {% endblock title %}
 
 {% block body %}
-<div class="card text-center" style="margin-top: 50px; width: 96%; margin-left: 2%;">
+<div class="card text-center" style="margin-top: 50px; width: 60%; margin-left: 20%;">
     <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Sign-up <p>
     <hr style="width: 96%; margin-left: 2%;">
-    <form action="signup" method="post">
+    <form method="post">
         {% csrf_token %}
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="floatingUsername" placeholder="Usuario1">
+            <input type="text" class="form-control" name="floatingUsername" placeholder="Usuario1">
             <label for="floatingUsername">Nombre de Usuario</label>
         </div>
         <div class="form-floating" style="width: 80%; margin-left: 10%;">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" name="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Contraseña</label>
         </div>
         <br>

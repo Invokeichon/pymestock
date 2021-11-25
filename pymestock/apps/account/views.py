@@ -1,45 +1,40 @@
-from django.views.generic import CreateView
-from django.contrib.auth import login
-from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
-
-from .forms import OwnerSignUpForm, WorkerSignUpForm
+from django.contrib.auth import login, authenticate, logout
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import User
-from ...decorators import owner_required
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 
+def register_user(request):
+    if request.method == 'GET':
+        return render(request, "account/signup.html")
 
-class OwnerSignUpView(CreateView):
-    model = User
-    form_class = OwnerSignUpForm
-    template_name = "account/signup.html"
+    elif request.method == 'POST':
+        print(request.POST)
+        username = request.POST['floatingUsername']
+        password = request.POST['floatingPassword']
 
-    def get_context_data(self, **kwargs):
-        kwargs["user_type"] = "owner"
-        return super().get_context_data(**kwargs)
+        user = User.objects.create_user(username=username, password=password)
 
-    def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect("pymestock:index")
+        return HttpResponseRedirect('/login')
 
+def login_user(request):
+    if request.method == 'GET':
+        print('a')
+        return render(request, "account/login.html")
 
-@method_decorator(login_required, name="dispatch")
-@method_decorator(owner_required, name="dispatch")
-class WorkerSignUpView(CreateView):
-    model = User
-    form_class = WorkerSignUpForm
-    template_name = "account/worker/signup.html"
+    if request.method == 'POST':
+        username = request.POST['login-username']
+        password = request.POST['login-pwd']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/dashboard')
+        else:
+            print('a')
+            return HttpResponseRedirect('login.html')
 
-    def get_context_data(self, **kwargs):
-        kwargs["user_type"] = "worker"
-        return super().get_context_data(**kwargs)
-
-    def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect("pymestock:index")
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('login.html')
 
 def dashboard(request):
     return render(request, "account/dashboard.html", {})
