@@ -11,9 +11,9 @@ Panel de Usuario
     <div class="card-header">
       EMPRESA
     </div>
-    <img class="card-img-top" src="..." alt="Logo EMPRESA">
     <div class="card-body">
       <h5 class="card-title">{{ business.business_name }}</h5>
+        <br>
       <a href="{% url 'inventory:inventory' %}" class="btn btn-dark">Inventario</a>
       <a href="{% url 'inventory:add_item' %}" class="btn btn-dark">Añadir item al inventario</a>
     </div>
@@ -24,8 +24,9 @@ Panel de Usuario
       USUARIO
     </div>
     <div class="card-body">
-      <h5 class="card-title">Username</h5>
-      <a href="#" class="btn btn-dark"> Añadir Observador</a>
+      <h5 class="card-title">{{ user }}</h5>
+        <br>
+      <a href="{% url 'account:add_observer' %}" class="btn btn-dark"> Añadir Observador</a>
       <a href="{% url 'account:logout' %}" class="btn btn-dark">Cerrar sesión</a>
     </div>
   </div>
