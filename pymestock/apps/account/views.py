@@ -2,6 +2,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import User
+from ..business.models import Business
+
 
 def register_user(request):
     if request.method == 'GET':
@@ -10,8 +12,13 @@ def register_user(request):
     elif request.method == 'POST':
         username = request.POST['floatingUsername']
         password = request.POST['floatingPassword']
+        business = request.POST['floatingBusiness']
 
-        User.objects.create_user(username=username, password=password)
+        new_business = Business(business_name=business)
+        new_business.save()
+        last_id = Business.objects.latest('id')
+
+        User.objects.create_user(username=username, password=password, business=last_id, is_owner=True)
 
         return HttpResponseRedirect('/login')
 
@@ -30,26 +37,18 @@ def login_user(request):
             login(request, user)
             return HttpResponseRedirect('/dashboard')
         else:
-<<<<<<< HEAD
-            return HttpResponseRedirect('/login')
-=======
             return HttpResponseRedirect('/error')
->>>>>>> 562f419e879928beab7d74900c4b2217ba373fc6
 
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/login')
 
 def dashboard(request):
-<<<<<<< HEAD
-    
-    return render(request, "account/dashboard.html", {})
-=======
     if request.user.is_authenticated:
-        return render(request, "account/dashboard.html", {})
+        business = Business.objects.get(id=request.user.business.id)
+        return render(request, "account/dashboard.html", {"business": business})
     else:
         return HttpResponseRedirect('/login')
 
 def error(request):
     return render(request, "account/error.html", {})
->>>>>>> 562f419e879928beab7d74900c4b2217ba373fc6

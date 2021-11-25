@@ -8,34 +8,34 @@ Pymestock
 <div class="card text-center" style="margin-top: 50px; width: 96%; margin-left: 2%;">
     <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Agregar item a inventario <p>
     <hr style="width: 96%; margin-left: 2%;">
-    <form action="signup" method="post">
+    <form method="post">
         {% csrf_token %}
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="item_id" placeholder="SKU1">
-            <label for="item_id">SKU del item</label>
+            <input type="text" class="form-control" name="sku" placeholder="SKU">
+            <label for="sku">SKU</label>
         </div>
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="name" placeholder="Name">
+            <input type="text" class="form-control" name="name" placeholder="Name">
             <label for="name">Nombre</label>
         </div>
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="brand" placeholder="Brand">
+            <input type="text" class="form-control" name="brand" placeholder="Brand">
             <label for="brand">Marca</label>
         </div>
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="price" placeholder="Price">
+            <input type="text" class="form-control" name="price" placeholder="Price">
             <label for="price">Precio</label>
         </div>
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="description" placeholder="Description">
+            <input type="text" class="form-control" name="description" placeholder="Description">
             <label for="description">Descripción</label>
         </div>
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" id="category" placeholder="Category">
+            <input type="text" class="form-control" name="category" placeholder="Category">
             <label for="category">Categoría</label>
         </div>
         <br>
-        <input type="submit" class="btn btn-dark" style="margin-bottom: 2%;" value="Agregar item">
+        <input type="submit" class="btn btn-dark" style="margin-bottom: 2%;" name="AddItem" value="Agregar item">
     </form>
 </div>
 {% endblock body %}

@@ -4,5 +4,5 @@ from django.db import models
 
 
 class User(AbstractUser):
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    business = models.ForeignKey(Business, null=True, on_delete=models.CASCADE)
     is_owner = models.BooleanField("owner status", default=False)
