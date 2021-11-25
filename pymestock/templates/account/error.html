@@ -1,0 +1,15 @@
+{% extends "pymestock/base.html" %}
+
+{% block title %}
+Error
+{% endblock title %}
+
+{% block body %}
+<div class="card text-center" style="margin-top: 50px; width: 60%; margin-left: 20%;">
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;">Error al iniciar sesión<p>
+    <hr style="width: 96%; margin-left: 2%;">
+    <p class="text-center">No se ha podido iniciar sesión. Revise que su nombre de usuario y contraseña sean válidas.</p>
+    <a href="{% url 'account:login' %}" class="btn btn-dark" style="margin-bottom: 1%; width: 60%; margin-left: 20%;">Intentar de nuevo</a>
+</div>
+
+{% endblock body %}
