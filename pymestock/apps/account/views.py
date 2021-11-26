@@ -6,6 +6,9 @@ from ..business.models import Business
 
 
 def register_user(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect("/dashboard")
+
     if request.method == 'GET':
         return render(request, "account/signup.html")
 

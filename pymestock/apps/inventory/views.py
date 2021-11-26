@@ -5,7 +5,7 @@ from pymestock.apps.business.models import Business
 
 def inventory(request):
     if request.user.is_authenticated:
-        mis_items = Item.objects.filter(id_business=request.user.business.id)
+        mis_items = Item.objects.filter(business_id=request.user.business.id)
         return render(request, "inventory/inventory.html", {"inventory": mis_items})
     else:
         return HttpResponseRedirect("/login")
