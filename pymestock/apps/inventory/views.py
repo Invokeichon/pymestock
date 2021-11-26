@@ -25,7 +25,7 @@ def add_item(request):
 
             if request.user.is_authenticated:
                 nuevo_item = Item(business=business, name=name, brand=brand, price=price,
-                                  description=description, stock_actual=1)
+                                  description=description, stock_actual=0)
 
                 nuevo_item.save()
 
@@ -43,4 +43,11 @@ def edit_inventory(request):
         return render(request, "inventory/edit_inventory.html", {"inventory": my_inventory})
 
     if request.method == "POST":
-        return render(request, "account/login.html")
+        if "SaveChanges" in request.POST:
+            for item in Item.objects.filter(business=request.user.business.id):
+                stock = request.POST[str(item.id)]
+                item.stock_actual = stock
+                item.save()
+
+            my_inventory = Item.objects.filter(business=request.user.business.id)
+            return HttpResponseRedirect("/inventory", {"inventory": my_inventory})
