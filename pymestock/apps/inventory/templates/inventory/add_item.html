@@ -11,10 +11,6 @@ Pymestock
     <form method="post">
         {% csrf_token %}
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" name="sku" placeholder="SKU">
-            <label for="sku">SKU</label>
-        </div>
-        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
             <input type="text" class="form-control" name="name" placeholder="Name">
             <label for="name">Nombre</label>
         </div>
@@ -29,10 +25,6 @@ Pymestock
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
             <input type="text" class="form-control" name="description" placeholder="Description">
             <label for="description">Descripción</label>
-        </div>
-        <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" name="category" placeholder="Category">
-            <label for="category">Categoría</label>
         </div>
         <br>
         <input type="submit" class="btn btn-dark" style="margin-bottom: 2%;" name="AddItem" value="Agregar item">
