@@ -12,10 +12,9 @@ Pymestock
             <input type="text" class="form-control" style="width: 70%; margin-left:5%" placeholder="Buscar producto...">
             <button type="button" class="btn btn-dark" style="margin-left:1%; width: 19%">Buscar</button>
     </div>
-    {% if user.is_owner %}
-        <a href="{% url 'inventory:inventory' %}" style="margin-left:40%; width: 19%" class="btn btn-dark"> Guardar cambios </a>
-    {% endif %}
-    <br>
+    <form method="post">
+    {% csrf_token %}
+    <br><br>
     <table class="table table-hover text-center" style="width: 90%; margin-left:5%;">
         <thead class="table-dark">
             <tr>
@@ -23,7 +22,7 @@ Pymestock
                 <th>Marca</th>
                 <th>Precio</th>
                 <th>Descripción</th>
-                <th>Stock</th>
+                <th>Stock actual</th>
             </tr>
         </thead>
         <tbody>
@@ -33,10 +32,15 @@ Pymestock
                     <td>{{ item.brand }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.description }}</td>
-                    <td>{{ item.stock_actual }}</td>
+                    <th><input style="width: 20%; text-align: right;" name="{{ item.id }}" value="{{ item.stock_actual }}"></th>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    <br>
+    {% if user.is_owner %}
+        <input type="submit" class="btn btn-dark" style="margin-left:40%; width: 19%; margin-bottom: 3%;" name="SaveChanges" value="Guardar cambios">
+    {% endif %}
+    </form>
 </div>
 {% endblock body %}
