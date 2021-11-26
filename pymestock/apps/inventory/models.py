@@ -18,9 +18,3 @@ class Item(models.Model):
 class Inventory(models.Model):
     id_item = models.ForeignKey(Item, on_delete=models.CASCADE)
     stock_actual = models.IntegerField()
-
-
-class MeasureUnit(models.Model):
-    category = models.CharField(max_length=CharField_max_length)
-    name = models.CharField(max_length=CharField_max_length)
-    abbreviation = models.CharField(max_length=CharField_max_length)

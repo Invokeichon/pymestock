@@ -1,6 +1,6 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Item, Inventory, MeasureUnit
+from .models import Item, Inventory
 from pymestock.apps.business.models import Business
 
 def inventory(request):
