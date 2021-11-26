@@ -18,6 +18,9 @@ Panel de Usuario
       {% if user.is_owner %}
       <a href="{% url 'inventory:add_item' %}" class="btn btn-dark">Añadir item al inventario</a>
       {% endif %}
+      {% if user.is_owner %}
+      <a href="{% url 'inventory:edit_inventory' %}" class="btn btn-dark"> Editar inventario </a>
+      {% endif %}
     </div>
   </div>
 

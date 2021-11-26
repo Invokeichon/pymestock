@@ -1,6 +1,6 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Item, Inventory
+from .models import Item
 from pymestock.apps.business.models import Business
 
 def inventory(request):
@@ -18,18 +18,29 @@ def add_item(request):
     if request.method == "POST":
         if "AddItem" in request.POST:
             business = Business.objects.get(id=request.user.business.id)
-            sku = request.POST["sku"]
             name = request.POST["name"]
             brand = request.POST["brand"]
             price = request.POST["price"]
             description = request.POST["description"]
-            category = request.POST["category"]
 
             if request.user.is_authenticated:
-                nuevo_item = Item(business=business, sku=sku, name=name, brand=brand, price=price,
-                                  description=description, category=category)
+                nuevo_item = Item(business=business, name=name, brand=brand, price=price,
+                                  description=description, stock_actual=1)
+
                 nuevo_item.save()
-                mis_items = Item.objects.filter(business=request.user.business.id)
-                return render(request, "inventory/inventory.html", {"inventory": mis_items})
+
+                my_inventory = Item.objects.filter(business=request.user.business.id)
+
+                return render(request, "inventory/inventory.html", {"inventory": my_inventory})
             else:
                 return render(request, "account/login.html")
+
+
+def edit_inventory(request):
+
+    if request.method == "GET" and request.user.is_authenticated:
+        my_inventory = Item.objects.filter(business=request.user.business.id)
+        return render(request, "inventory/edit_inventory.html", {"inventory": my_inventory})
+
+    if request.method == "POST":
+        return render(request, "account/login.html")

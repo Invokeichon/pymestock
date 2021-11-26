@@ -6,14 +6,14 @@ Pymestock
 
 {% block body %}
 <div class="card" style="margin-top: 50px; width: 96%; margin-left: 2%;">
-    <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Inventario <p>
+    <p class="display-5 fw-bold text-center" style="margin-top: 50px;"> Editar inventario <p>
     <hr style="width: 96%; margin-left: 2%;">
     <div class ="text-center" style="display: flex; margin-bottom: 25px">
             <input type="text" class="form-control" style="width: 70%; margin-left:5%" placeholder="Buscar producto...">
             <button type="button" class="btn btn-dark" style="margin-left:1%; width: 19%">Buscar</button>
     </div>
     {% if user.is_owner %}
-        <a href="{% url 'inventory:edit_inventory' %}" style="margin-left:40%; width: 19%" class="btn btn-dark"> Editar inventario </a>
+        <a href="{% url 'inventory:inventory' %}" style="margin-left:40%; width: 19%" class="btn btn-dark"> Guardar cambios </a>
     {% endif %}
     <br>
     <table class="table table-hover text-center" style="width: 90%; margin-left:5%;">
@@ -40,4 +40,3 @@ Pymestock
     </table>
 </div>
 {% endblock body %}
-
