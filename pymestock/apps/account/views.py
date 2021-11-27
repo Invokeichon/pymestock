@@ -25,6 +25,7 @@ def register_user(request):
 
         return HttpResponseRedirect('/login')
 
+
 def login_user(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('/dashboard')
@@ -42,9 +43,11 @@ def login_user(request):
         else:
             return HttpResponseRedirect('/error')
 
+
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/login')
+
 
 def dashboard(request):
     if request.user.is_authenticated:
@@ -54,8 +57,10 @@ def dashboard(request):
     else:
         return HttpResponseRedirect('/login')
 
+
 def error(request):
     return render(request, "account/error.html", {})
+
 
 def add_observer(request):
     if request.method == "GET":
