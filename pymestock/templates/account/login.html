@@ -11,11 +11,11 @@ Pymestock Sign In
     <form method="post">
         {% csrf_token %}
         <div class="form-floating mb-3" style="width: 80%; margin-left: 10%;">
-            <input type="text" class="form-control" name="login-username" placeholder="Usuario1">
+            <input type="text" class="form-control" name="login-username" placeholder="Usuario1" required>
             <label for="login-username">Nombre de usuario</label>
         </div>
         <div class="form-floating" style="width: 80%; margin-left: 10%;">
-            <input type="password" class="form-control" name="login-pwd" placeholder="Password">
+            <input type="password" class="form-control" name="login-pwd" placeholder="Password" required>
             <label for="login-pwd">Contraseña</label>
         </div>
         <br>

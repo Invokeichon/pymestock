@@ -63,6 +63,9 @@ def error(request):
 
 
 def add_observer(request):
+    if not request.user.is_owner:
+        return HttpResponseRedirect("/dashboard")
+
     if request.method == "GET":
         return render(request, "account/worker/signup.html")
 

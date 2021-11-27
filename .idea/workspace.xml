@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a499d6e-925b-452f-ae3e-63df8a6b781c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pymestock/apps/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/account/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymestock/apps/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/add_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/add_item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/edit_inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/edit_inventory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/inventory/templates/inventory/inventory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/apps/inventory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/inventory/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymestock/apps/inventory/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/apps/inventory/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/templates/account/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymestock/templates/account/worker/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/pymestock/templates/account/worker/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +47,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21TVbHJj64uYqQxfwXn7o8uZHy3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
